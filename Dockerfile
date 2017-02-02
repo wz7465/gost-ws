@@ -10,8 +10,10 @@ RUN \
     && cd ~ \
     && apk del .build-deps 
     
-ENTRYPOINT ["/opt/gost/gost_2.3_linux_amd64/gost"]
+ADD entrypoint.sh /entrypoint.sh
 
-CMD ["-L","WS//:8080"]
+RUN chmod +x /entrypoint.sh && crontab -l
+
+ENTRYPOINT  sh /entrypoint.sh ; crond -f
 
 EXPOSE 8080
