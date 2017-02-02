@@ -10,10 +10,8 @@ RUN \
     && cd ~ \
     && apk del .build-deps 
     
-ADD entrypoint.sh /entrypoint.sh
+ENTRYPOINT ["/opt/gost/gost"]
 
-RUN chmod +x /entrypoint.sh
-
-ENTRYPOINT /entrypoint.sh
+CMD ["-L","WS//:8080"]
 
 EXPOSE 8080
