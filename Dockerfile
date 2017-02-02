@@ -11,9 +11,9 @@ RUN \
     && apk del .build-deps 
     
 ADD entrypoint.sh /entrypoint.sh
-ADD 
-RUN chmod +x /entrypoint.sh && crontab -l
 
-ENTRYPOINT  sh /entrypoint.sh ; crond -f
+RUN chmod +x /entrypoint.sh 
+
+ENTRYPOINT  /entrypoint.sh
 
 EXPOSE 8080
