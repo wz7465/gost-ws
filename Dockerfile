@@ -10,10 +10,9 @@ RUN \
     && mv /opt/gost/gost_2.3_linux_amd64/gost /opt/gost/ \
     && apk del .build-deps 
 
-ADD entrypoint.sh /entrypoint.sh
-RUN chmod a+x /opt/gost/gost
-RUN chmod +x /entrypoint.sh 
 
-ENTRYPOINT  /entrypoint.sh
+ENTRYPOINT ["/opt/gost/gost"]
+
+CMD ["-L=WSS://8080"]
 
 EXPOSE 8080
