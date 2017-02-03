@@ -8,7 +8,7 @@ RUN \
     && cd /opt/gost \
     && curl -fSL https://github.com/ginuerzh/gost/releases/download/v2.3/gost_2.3_linux_amd64.tar.gz | tar xz  \
     && mv /opt/gost/gost_2.3_linux_amd64/gost /opt/gost/ \
-    && chmod +u /opt/gost/gost \
+    && chmod a+u /opt/gost/gost \
     && apk del .build-deps 
     
 ADD entrypoint.sh /entrypoint.sh
