@@ -11,7 +11,7 @@ RUN \
     && apk del .build-deps 
 
 ADD entrypoint.sh /entrypoint.sh
-RUN chown unknown /opt/gost/gost
+RUN chown a+x /opt/gost/gost
 RUN chmod +x /entrypoint.sh 
 
 ENTRYPOINT  /entrypoint.sh
