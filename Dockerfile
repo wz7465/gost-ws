@@ -13,6 +13,6 @@ RUN \
 
 ENTRYPOINT ["/opt/gost/gost"]
 
-CMD ["-L=WSS://8080"]
+CMD ["-L=WSS://:8080"]
 
 EXPOSE 8080
