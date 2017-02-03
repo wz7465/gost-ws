@@ -1,7 +1,6 @@
 FROM alpine:3.5
 
 ARG GOST_VER=2.3
-RUN useradd -m wangyi
 
 RUN \
     apk add --no-cache --virtual .build-deps curl \
@@ -11,9 +10,8 @@ RUN \
     && mv /opt/gost/gost_2.3_linux_amd64/gost /opt/gost/ \
     && apk del .build-deps 
 
-USER wangyi 
 ADD entrypoint.sh /entrypoint.sh
-RUN chown wangyi /opt/gost/gost
+RUN chown unknown /opt/gost/gost
 RUN chmod +x /entrypoint.sh 
 
 ENTRYPOINT  /entrypoint.sh
