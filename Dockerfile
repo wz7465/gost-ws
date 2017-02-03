@@ -1,7 +1,7 @@
 FROM golang:alpine
 
 RUN apk add --update git && \
-    git clone -b master https://github.com/ginuerzh/gost /go/src/gost && \
+    git clone -b master https://github.com/ginuerzh/gost/ /go/src/gost && \
     cd /go/src/gost/cmd/gost && \
     go get ./... && go gost/cmd/gost
 
