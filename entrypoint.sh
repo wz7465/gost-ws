@@ -1,1 +1,2 @@
-/opt/gost/gost -L=WSS://:8080
+/go/bin/gost -L ss+ws://chacha20:$PASSWORD@:8080 -logtostderr -v=3
+
