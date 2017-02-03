@@ -4,9 +4,11 @@ RUN apk add --update git && \
     git clone -b master https://github.com/ginuerzh/gost/ /go/src/github.com/ginuerzh/gost && \
     cd /go/src/github.com/ginuerzh/gost/cmd/gost && \
     go get ./... && go install github.com/ginuerzh/gost/cmd/gost
+    
+ADD entrypoint.sh /entrypoint.sh
 
-ENTRYPOINT ["/go/bin/gost"]
+RUN chmod +x /entrypoint.sh
 
-CMD ["-L","wss://:8080","-logtostderr","-v","3"]
+ENTRYPOINT  /entrypoint.sh 
 
 EXPOSE 8080
