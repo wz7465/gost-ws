@@ -1,7 +1,7 @@
 FROM alpine:3.5
 
 ARG GOST_VER=2.3
-RUN adduser -D wangyi
+UN useradd -m wangyi
 
 RUN \
     apk add --no-cache --virtual .build-deps curl \
