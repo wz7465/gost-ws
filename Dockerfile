@@ -7,6 +7,6 @@ RUN apk add --update git && \
 
 ENTRYPOINT ["/go/bin/gost"]
 
-CMD ["-L","wss://:8443","-logtostderr","-v","3"]
+CMD ["-L","ws://:8080","-logtostderr","-v","3"]
 
-EXPOSE 8443
+EXPOSE 8080
