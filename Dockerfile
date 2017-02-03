@@ -1,17 +1,11 @@
-FROM alpine:3.5
+FROM golang:alpine
 
-ARG GOST_VER=2.3
+RUN apk add --update git && \
+    git clone -b master https://github.com/ginuerzh/gost /go/src/gost && \
+    cd /go/src/gost/cmd/gost && \
+    go get ./... && go gost/cmd/gost
 
-RUN \
-    apk add --no-cache --virtual .build-deps curl \
-    && mkdir -p /opt/gost \
-    && cd /opt/gost \
-    && curl -fSL https://github.com/ginuerzh/gost/releases/download/v2.3/gost_2.3_linux_amd64.tar.gz | tar xz  \
-    && mv /opt/gost/gost_2.3_linux_amd64/gost /opt/gost/ \
-    && apk del .build-deps 
-
-
-ENTRYPOINT ["/opt/gost/gost"]
+ENTRYPOINT ["/go/bin/gost"]
 
 CMD ["-L=WSS://:8080"]
 
