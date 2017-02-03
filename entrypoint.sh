@@ -1,2 +1,2 @@
-/go/bin/gost -L ss+ws://chacha20:$PASSWORD@:8080 -logtostderr -v=3
+/go/bin/gost -L ss+wss://chacha20:$PASSWORD@:8080 -logtostderr -v=3
 
