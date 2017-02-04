@@ -5,7 +5,7 @@ RUN apk add --update git && \
     cd /go/src/github.com/ginuerzh/gost/cmd/gost && \
     go get ./... && go install github.com/ginuerzh/gost/cmd/gost
     
-ENV MODE=wss
+ENV MODE=ws
 
 ADD entrypoint.sh /entrypoint.sh
 
