@@ -1,4 +1,4 @@
-# deploy gost to  docker(openshift arukas)
+# deploy GOST to  docker(openshift arukas)
 
 gost ver 2.3
 
@@ -7,6 +7,10 @@ image: wangyi2005/gost-ws
 default Environment Variables:
 
 MODE: ws（wss、http2、tls， etc）
+
+LISTEN_PORT: 8080
+
+GOST support sniproxy 。 
 
 # openshift
 
