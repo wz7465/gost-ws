@@ -29,3 +29,7 @@ Endpoint: https://[hostname].arukascloud.io
 gost server: -L ws://:8080
 
 gost client: -F wss://[hostname].arukascloud.io:443
+
+gost server: -L http://:8080
+
+gost client: -F tls://[hostname].arukascloud.io:443  OR chrome+SwitchyOmega HTTPS proxy Endpoint:443
