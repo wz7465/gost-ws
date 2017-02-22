@@ -1,6 +1,7 @@
+cd /go/bin
 if [ "$CERT_PEM" != "$KEY_PEM" ]; then
-  echo "$CERT_PEM" |  tee /go/bin/cert.pem
-  echo "$KEY_PEM"  |  tee /go/bin/key.pem
+  echo "$CERT_PEM" |  tee cert.pem
+  echo "$KEY_PEM"  |  tee key.pem
 fi
-/go/bin/gost -L $MODE://:8080 -logtostderr -v=3
+./gost -L $MODE://:8080 -logtostderr -v=3
 
