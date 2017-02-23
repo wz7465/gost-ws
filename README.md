@@ -6,11 +6,11 @@ gost 版本 2.3
 
 设置 3 个 环境变量:
 
-1. MODE : 默认为ws，可设置为 wss、http2、tls等。
+1、MODE : 默认为ws，可设置为 wss、http2、tls等。
 
-2. CERT_PEM： PEM格式证书，替换内置证书。
+2、CERT_PEM： PEM格式证书，替换内置证书。
 
-3. CERT_PEM : PEM格式私钥，替换内置私钥。
+3、KEY_PEM :  PEM格式私钥，替换内置私钥。
 
 注意：
 
