@@ -18,7 +18,7 @@ gost 版本 2.3
 
 2、如配置为 https 代理，可用 sniproxy 加速。
 
-openshift 有两种模式，均用 secure route
+# openshift 有两种模式，均用 https secure route
 
 1、edge 模式 （route TLS Settings Termination type : edge）
 
@@ -30,7 +30,7 @@ gost server: -L ws://:8080 ，gost client: -F wss://route:443
 
 可支持tls、http2，客户端和服务端应同为 tls、http2。
 
-arukas 可使用 Endpoint: https://[hostname].arukascloud.io
+# arukas 可使用 Endpoint: https://[hostname].arukascloud.io
 
 可支持tls、wss。
 
