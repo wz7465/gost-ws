@@ -1,35 +1,45 @@
-# deploy GOST to  docker(openshift arukas)
+# 部署 GOST 到 VPS、Paas（openshift、arukas)
 
-gost ver 2.3
+gost 版本 2.3
 
-image: wangyi2005/gost-ws
+镜像: wangyi2005/gost-ws （https://hub.docker.com/r/wangyi2005/gost-ws/）
 
-default Environment Variables:
+设置 3个 环境变量:
 
-MODE: ws（wss、http2、tls， etc）
+1. MODE : 默认为ws，可设置为 wss、http2、tls等。
 
-LISTEN_PORT: 8080
+2. CERT_PEM： PEM格式证书，替换内置证书。
 
-GOST support sniproxy 。 
+3. CERT_PEM : PEM格式私钥，替换内置私钥。
 
-# openshift
+注意：
 
-TLS Settings Termination type:edge
+1、需替换 PEM 文件中的换行符为 \n ，多行变一行。
 
-secure route: https://[host]-[project].44fs.preview.openshiftapps.com
+2. 如配置为 https 代理，可用 sniproxy 加速。 
 
-gost server: -L ws://:8080
+# openshift有两种模式，均用 secure route
 
-gost client: -F wss://[host]-[project].44fs.preview.openshiftapps.com:443
+1. edge 模式 （route TLS Settings Termination type : edge）
 
-# arukas
+只支持 websocket，服务端 MODE 应为 ws。
 
-Endpoint: https://[hostname].arukascloud.io
+gost server: -L ws://:8080 ，gost client: -F wss://route:443
 
-gost server: -L ws://:8080
+2. Passthough 模式 （route TLS Settings Termination type : Passthough
 
-gost client: -F wss://[hostname].arukascloud.io:443
+可支持tls、http2，客户端和服务端应同为 tls、http2。
 
-gost server: -L http://:8080
+# arukas 可使用 Endpoint: https://[hostname].arukascloud.io
 
-gost client: -F tls://[hostname].arukascloud.io:443  OR chrome+SwitchyOmega HTTPS proxy Endpoint:443
+可支持tls、wss。
+
+1. wss配置：
+
+gost server: -L ws://:8080 ， gost client: -F wss://Endpoint:443
+
+2. tls配置
+
+gost server: -L http://:8080 ，gost client: -F tls://Endpoint:443  
+
+可以 chrome+SwitchyOmega 设置 HTTPS代理 Endpoint:443
