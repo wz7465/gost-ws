@@ -2,7 +2,7 @@
 
 gost 版本 2.3
 
-镜像: wangyi2005/gost-ws （https://hub.docker.com/r/wangyi2005/gost-ws/）
+镜像: wangyi2005/gost-ws （https://hub.docker.com/r/wangyi2005/gost-ws ）
 
 设置 3 个 环境变量:
 
@@ -16,7 +16,7 @@ gost 版本 2.3
 
 1、需替换 PEM 文件中的换行符为 \n ， 多行变一行。
 
-2、如配置为 https 代理，可用 sniproxy 加速。
+2、如配置为域名访问，可用 sniproxy 加速。
 
 # openshift 有两种模式，均用 https secure route
 
