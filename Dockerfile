@@ -11,7 +11,9 @@ ADD entrypoint.sh /entrypoint.sh
 
 RUN chgrp -R 0 /go/bin \
     && chmod -R g+rwX /go/bin \
-    && chmod +x /entrypoint.sh
+    && chmod +x /entrypoint.sh \
+    && ls -l /go \
+    && ls -l /go/bin
 
 ENTRYPOINT  /entrypoint.sh 
 
